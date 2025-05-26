@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for the Nairobi Marathon - Secure Your Spot">
+    <title>Register | Nairobi Marathon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .register-hero {
+            background-image: url('asset/hero3.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .hero-text {
+            position: relative;
+            z-index: 10;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-blue-900 p-4 text-white flex justify-between items-center sticky top-0 shadow-md relative z-50">
+        <h1 class="text-2xl font-bold">Nairobi Marathon</h1>
+        <button id="menuToggle" class="text-white text-2xl md:hidden focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="desktop-menu hidden md:flex space-x-4">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="faq.html">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden absolute bg-blue-900 text-white w-3/4 right-0 p-2 rounded-md hidden z-50 max-w-xs">
+        <a href="home.html" class="block py-2" onclick="closeMenu()">Home</a>
+        <a href="about.html" class="block py-2" onclick="closeMenu()">About</a>
+        <a href="register.html" class="block py-2" onclick="closeMenu()">Register</a>
+        <a href="faq.html" class="block py-2" onclick="closeMenu()">FAQ</a>
+        <a href="blog.html" class="block py-2" onclick="closeMenu()">Blog</a>
+        <a href="contact.html" class="block py-2" onclick="closeMenu()">Contact</a>
+    </div>
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            menuToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", function(event) {
+                if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+
+            window.closeMenu = function() {
+                mobileMenu.classList.add("hidden");
+            };
+        });
+    </script>
+
+    <!-- Register Hero Section -->
+    <section class="register-hero relative">
+        <div class="overlay"></div>
+        <div class="hero-text">Register for the Nairobi Marathon</div>
+    </section>
+
+    <!-- Register Form Section -->
+    <section id="register" class="py-12 bg-gray-100">
+        <h3 class="text-3xl font-bold mb-4 text-center">Register for the Nairobi Marathon</h3>
+        <form class="space-y-4 max-w-md mx-auto">
+            <input type="text" placeholder="Name" class="w-full p-3 border rounded" required>
+            <input type="email" placeholder="Email" class="w-full p-3 border rounded" required>
+            <select class="w-full p-3 border rounded" required>
+                <option value="">Select Race Category</option>
+                <option value="10k">10K Run</option>
+                <option value="21k">Half Marathon (21K)</option>
+                <option value="42k">Full Marathon (42K)</option>
+            </select>
+            <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded w-full">Register Now</button>
+        </form>
+    </section>
+<!-- Footer Section -->
+<footer class="bg-blue-900 text-white py-8 mt-12">
+    <div class="container mx-auto px-4 md:px-16 lg:px-24">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo and Description -->
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h2 class="text-2xl font-bold">Nairobi Marathon</h2>
+                <p class="mt-2 text-sm text-gray-300">Join the run, support a cause, and experience Nairobi's vibrant spirit.</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="flex space-x-4 mt-4 md:mt-0 text-center md:text-left">
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+        </div>
+
+        <hr class="my-4 border-gray-600">
+
+        <!-- Copyright -->
+        <div class="text-center text-sm text-gray-400">
+            <p>&copy; 2025 Nairobi Marathon. All rights reserved. | Designed by Nairobi Marathon Team</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About the Nairobi Marathon - Learn more about our mission, values, and impact.">
+    <title>About Us | Nairobi Marathon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            position: relative;
+            height: 350px;
+            background-image: url('asset/hero2.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .angled-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: rgba(0, 116, 217, 0.85); /* Blue overlay */
+            clip-path: polygon(0 0, 80% 0, 60% 100%, 0% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 30px;
+        }
+
+        .hero-text {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        header {
+            position: relative;
+            z-index: 50; /* Ensure header is always above hero section */
+        }
+
+        .image-gallery img {
+            height: 300px; /* Set a fixed height */
+            object-fit: cover; /* Crop the image to fit within the height */
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation Bar -->
+    <header class="bg-blue-900 p-4 text-white flex justify-between items-center sticky top-0 shadow-md relative z-50">
+        <h1 class="text-2xl font-bold">Nairobi Marathon</h1>
+        <button id="menuToggle" class="text-white text-2xl md:hidden focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="desktop-menu hidden md:flex space-x-4">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="faq.html">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden absolute bg-blue-900 text-white w-3/4 right-0 p-2 rounded-md hidden z-50 max-w-xs">
+        <a href="home.html" class="block py-2" onclick="closeMenu()">Home</a>
+        <a href="about.html" class="block py-2" onclick="closeMenu()">About</a>
+        <a href="register.html" class="block py-2" onclick="closeMenu()">Register</a>
+        <a href="faq.html" class="block py-2" onclick="closeMenu()">FAQ</a>
+        <a href="blog.html" class="block py-2" onclick="closeMenu()">Blog</a>
+        <a href="contact.html" class="block py-2" onclick="closeMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section with Angled Overlay -->
+    <section class="hero-section relative">
+        <div class="angled-overlay"></div>
+        <!--<div class="hero-text">
+            <h2>About</h2>
+        </div>-->
+    </section>
+
+    <!-- About Content -->
+    <section class="py-12 px-4 md:px-16 lg:px-24">
+        <h3 class="text-3xl font-bold mb-4">Our Vision and Mission</h3>
+        <p class="mb-6">Our mission is to promote health, unity, and social impact through the transformative power of running.</p>
+        <div class="image-gallery grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="asset/image7.png" alt="Running Event" class="rounded-lg mb-4">
+            <img src="asset/image8.png" alt="Community Support" class="rounded-lg mb-4">
+        </div>
+        <h3 class="text-3xl font-bold mt-12">Our Core Values</h3>
+        <p>We are committed to promoting health, community, sustainability, and inclusivity.</p>
+        <div class="image-gallery grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="asset/image9.png" alt="Team Support" class="rounded-lg mb-4">
+            <img src="asset/image10.png" alt="Charity and Impact" class="rounded-lg mb-4">
+        </div>
+        <h3 class="text-3xl font-bold mt-12">Our History</h3>
+        <p>The Nairobi Marathon began in 2003 and has since become a premier event, inspiring thousands to run for a cause.</p>
+        <div class="image-gallery grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="asset/image11.png" alt="Historic Marathon" class="rounded-lg mb-4">
+            <img src="asset/image12.png" alt="Runners Community" class="rounded-lg mb-4">
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            menuToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", function(event) {
+                if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+
+            window.closeMenu = function() {
+                mobileMenu.classList.add("hidden");
+            };
+        });
+    </script>
+<!-- Footer Section -->
+<footer class="bg-blue-900 text-white py-8 mt-12">
+    <div class="container mx-auto px-4 md:px-16 lg:px-24">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo and Description -->
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h2 class="text-2xl font-bold">Nairobi Marathon</h2>
+                <p class="mt-2 text-sm text-gray-300">Join the run, support a cause, and experience Nairobi's vibrant spirit.</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="flex space-x-4 mt-4 md:mt-0 text-center md:text-left">
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+        </div>
+
+        <hr class="my-4 border-gray-600">
+
+        <!-- Copyright -->
+        <div class="text-center text-sm text-gray-400">
+            <p>&copy; 2025 Nairobi Marathon. All rights reserved. | Designed by Nairobi Marathon Team</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
